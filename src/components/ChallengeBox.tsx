@@ -1,8 +1,19 @@
 import { useContext } from "react";
 import { challengesContext } from "../contexts/ChallengesContext";
+import { CountDownContext } from "../contexts/CountDownContext";
 
 export function ChallengeBox() {
     const { activeChallenge, resetChallenge, completeChallenge } = useContext(challengesContext);
+    const { resetCountdown } = useContext(CountDownContext);
+
+    function handleChallengeSucceded() {
+
+    }
+
+    function handleChallengeFailed() {
+
+    }
+
 
     return (
         <div>
