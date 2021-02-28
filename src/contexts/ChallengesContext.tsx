@@ -16,6 +16,7 @@ interface ChallengeContextData {
     challengesCompleted: number;
     activeChallenge: Challenge;
     levelUp: () => void;
+    experienceToNextLevel: number;
     closeLevelUpModal: () => void;
     startNewChallenge: () => void;
     resetChallenge: () => void;
@@ -95,6 +96,8 @@ export function ChallengesProvider({ children, ...rest }: challengesProviderProp
         }
 
         setCurrentExperience(finalExperience);
+        setActiveChallenge(null);
+        setChallengesCompleted(challengesCompleted + 1);
     }
 
     return (
@@ -105,6 +108,7 @@ export function ChallengesProvider({ children, ...rest }: challengesProviderProp
                 challengesCompleted,
                 levelUp,
                 closeLevelUpModal,
+                experienceToNextLevel,
                 startNewChallenge,
                 activeChallenge,
                 resetChallenge,

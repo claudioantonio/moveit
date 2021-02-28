@@ -16,7 +16,9 @@ interface CountDownProviderProps {
 
 export const CountDownContext = createContext({} as CountDownContextData);
 
+
 let countdownTimeout: NodeJS.Timeout;
+
 
 export function CountDownProvider({ children }: CountDownProviderProps) {
     const { startNewChallenge } = useContext(challengesContext);
@@ -49,6 +51,7 @@ export function CountDownProvider({ children }: CountDownProviderProps) {
         } else if (isActive && time === 0) {
             setHasFinished(true);
             setIsActive(false);
+            startNewChallenge();
         }
     }, [isActive, time]);
 
